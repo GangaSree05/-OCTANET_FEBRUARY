@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="todolist.css">
+</head>
+<body>
+  
+  <div class="task-container">
+    <h2>To-Do List</h2>
+    <div id="task-form">
+      <label for="task-name">Task Name:</label>
+      <input type="textarea" id="task-name">
+
+      <label for="label">Label:</label>
+      <input type="text" id="label">
+
+      <label for="deadline">Deadline:</label>
+      <input type="date" id="deadline">
+
+      <label for="priority">Priority:</label>
+      <select id="priority">
+        <option value="high">Complete it ASAP</option>
+        <option value="low">Can be done later</option>
+      </select>
+      <button onclick="addTask()">Add Task</button>
+    </div>
+  </div>
+  <br>
+   .<div class="work">
+    <id="task-list">
+     <h3>Task List</h3>
+     <ul id="tasks">
+   </id> 
+   </div>
+  
+
+
+  <script src="todo.js"></script>
+  
+</body>
+</html>
