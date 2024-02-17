@@ -1,0 +1,50 @@
+let tasks = [];
+
+function addTask() {
+  const taskName = document.getElementById('task-name').value;
+  const deadline = document.getElementById('deadline').value;
+  const priority = document.getElementById('priority').value;
+  const labels = document.getElementById('label').value.split(',').map(label => label.trim());
+
+  const task = {
+    name: taskName,
+    deadline: deadline,
+    priority: priority,
+    labels: labels
+  };
+
+  tasks.push(task);
+  displayTasks();
+  clearForm();
+}
+
+function displayTasks() {
+  const tasksList = document.getElementById('tasks');
+  tasksList.innerHTML = '';
+
+  tasks.forEach((task, index) => {
+    const taskItem = document.createElement('li');
+    taskItem.innerHTML = `
+      <strong>Task:${task.name}</strong>
+      <br>
+      Labels: ${task.labels.join(', ')} <br>
+      Deadline: ${task.deadline} <br> 
+      Priority: ${task.priority} <br>
+      <br>
+      <button onclick="removeTask(${index})">Delete</button>
+    `;
+    tasksList.appendChild(taskItem);
+  });
+}
+
+function removeTask(index) {
+  tasks.splice(index, 1);
+  displayTasks();
+}
+
+function clearForm() {
+  document.getElementById('task-name').value = '';
+  document.getElementById('deadline').value = '';
+  document.getElementById('priority').value = 'high';
+  document.getElementById('label').value = '';
+}
